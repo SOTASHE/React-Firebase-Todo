@@ -21,9 +21,6 @@ import { BiLoaderAlt } from "react-icons/bi";
 
 const App = () => {
 
-    //collection ref
- const colRef = collection(store, "tasks")
-
     //Initialize state
     const [Tasks, setTasks] = useState([]);
     const [TasksAll, setTasksAll] = useState([]);
@@ -38,16 +35,13 @@ const App = () => {
     //store updated data in temp array
     //catch the error
     useEffect(() => {
-        onSnapshot(colRef, (snapshot) => {
-            //console.log(snapshot.docs)
+        onSnapshot(collection(store, "tasks"), (snapshot) => {
+            console.log(snapshot.docs)
             let temp = [];
             snapshot.docs.forEach((doc) => {
                 temp.push({ ...doc.data(), id: doc.id });
             })
-             //console.log(temp)
-            //.catch(err => {
-              //  console.log(err.message)
-           
+            //console.log(temp)
             setLoading(false);
             setTasks(temp);
             setTasksAll(temp);
@@ -58,6 +52,10 @@ const App = () => {
                 arrCompleted.push(item.id);
             });
             setCompleted(arrCompleted);
+        })
+        .catch(err => {
+            console.log(err)
+
         })
 
     }, []);
@@ -82,7 +80,7 @@ const App = () => {
             <img src={HeaderLightMobile} className="img-light-mobile" alt="mobile hader light" />
             <div className={"content " + Theme}>
                 <HeaderComponent changeTheme={changeTheme} />
-                <AddComponent countTask={Tasks.length} setReset={reset} reset={Reset} colRef={colRef}/>
+                <AddComponent countTask={Tasks.length} setReset={reset} reset={Reset} />
                 {Loading ?
                     <div className="loading">
                         <h2>Loading...</h2>

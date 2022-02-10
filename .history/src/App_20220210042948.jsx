@@ -82,7 +82,7 @@ const App = () => {
             <img src={HeaderLightMobile} className="img-light-mobile" alt="mobile hader light" />
             <div className={"content " + Theme}>
                 <HeaderComponent changeTheme={changeTheme} />
-                <AddComponent countTask={Tasks.length} setReset={reset} reset={Reset} colRef={colRef}/>
+                <AddComponent countTask={Tasks.length} setReset={reset} reset={Reset} />
                 {Loading ?
                     <div className="loading">
                         <h2>Loading...</h2>

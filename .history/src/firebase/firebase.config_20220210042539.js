@@ -21,6 +21,7 @@ const app = initializeApp(firebaseConfig)
 // Initialize services
 const store = getFirestore(app)
 
-
+//collection ref
+ const colRef = collection(store, "tasks")
 
 export default store

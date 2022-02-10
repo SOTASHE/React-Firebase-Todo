@@ -1,7 +1,7 @@
 // Using firebase9
 //Import the functions I need from the SDKs I need
 import { initializeApp } from "firebase/app";
-import {getFirestore,  collection} from "firebase/firestore"
+import {getFirestore} from "firebase/firestore"
 
 //Firebase configuration
 const firebaseConfig = {
@@ -20,7 +20,5 @@ const app = initializeApp(firebaseConfig)
 
 // Initialize services
 const store = getFirestore(app)
-
-
 
 export default store
