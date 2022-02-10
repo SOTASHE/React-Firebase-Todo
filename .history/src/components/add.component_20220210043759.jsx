@@ -2,7 +2,7 @@ import React from "react";
 // Firebase
 import { addDoc } from "firebase/firestore";
 
-//Adding documents 
+//Adding tasks to database
 const Add = ({ countTask, setReset, reset, colRef }) => {
 
     const addTask = async (e) => {
@@ -14,8 +14,7 @@ const Add = ({ countTask, setReset, reset, colRef }) => {
             index: countTask + 1,
             task: e.target[0].value,
             completed: false,
-        })
-        //reset form
+        });
         e.target[0].value = "";
         setReset(!reset);
     }

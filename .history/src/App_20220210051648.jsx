@@ -37,10 +37,10 @@ const App = () => {
     const [Reset, setReset] = useState(false);
     const [Loading, setLoading] = useState(true);
 
-    //get data collection and update state
+    //get data and update state
     //loop through the documents and get the data
     //store updated data in temp array
-
+    //catch the error
     useEffect(() => {
         onSnapshot(colRef, (snapshot) => {
             //console.log(snapshot.docs)
@@ -49,7 +49,10 @@ const App = () => {
                 temp.push({ ...doc.data(), id: doc.id });
             })
              //console.log(temp)
-    
+            //.catch(err => {
+              //  console.log(err.message)
+              const docRef = doc(store, "tasks", doc.id)
+           
             setLoading(false);
             setTasks(temp);
             setTasksAll(temp);
@@ -62,7 +65,7 @@ const App = () => {
             setCompleted(arrCompleted);
         })
 
-    }, []);
+    }, [Tasks]);
 
     const setCompleted = (newId) => setId(newId);
 
@@ -75,8 +78,6 @@ const App = () => {
     const getCompletedTasks = (completedTasks) => (setTasks(completedTasks), setCurrentFilter("completed"));
 
     const reset = (isReset) => setReset(isReset);
-
-    
 
     return (
         <>
@@ -94,7 +95,7 @@ const App = () => {
                     </div>
                     : null}
                 <MsgComponent tasks={Tasks} filter={CurrentFilter} loading={Loading} />
-            <ListComponent list={Tasks} />
+            <ListComponent list={Tasks} docRef={docRef} />
                 <ConfigComponent
                     numTasks={Tasks.length}
                     completed={Id}

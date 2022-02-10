@@ -7,7 +7,7 @@ import { VscChromeClose } from "react-icons/vsc";
 import { deleteDoc, updateDoc, doc } from 'firebase/firestore';
 import store from '../firebase/firebase.config';
 
-const List = ({ list}) => {
+const List = ({ list }) => {
     //Initial state
     const [List, setList] = useState(null);
     const [Completed, setCompleted] = useState([]);
@@ -32,11 +32,9 @@ const List = ({ list}) => {
         result.splice(destinationIndex, 0, removed);
         return result;
     }
- 
 
-     //update documents
     const updateCompleted = async (e) => {
-         const taskRef = doc(store, "tasks", e.target.id);
+        const taskRef = doc(store, "tasks", e.target.id);
         await updateDoc(taskRef, {completed: e.target.checked});
     }
       //Delete tasks

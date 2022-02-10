@@ -36,7 +36,7 @@ const List = ({ list}) => {
 
      //update documents
     const updateCompleted = async (e) => {
-         const taskRef = doc(store, "tasks", e.target.id);
+        const taskRef = doc(store, "tasks", e.target.id);
         await updateDoc(taskRef, {completed: e.target.checked});
     }
       //Delete tasks

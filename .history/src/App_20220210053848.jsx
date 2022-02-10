@@ -62,7 +62,7 @@ const App = () => {
             setCompleted(arrCompleted);
         })
 
-    }, []);
+    }, [Tasks]);
 
     const setCompleted = (newId) => setId(newId);
 
