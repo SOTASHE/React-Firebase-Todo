@@ -16,27 +16,27 @@ https://todo-app-fueltofly.web.app/
 
 ### Want to run your own instance of the app?  The requirements to build from source are:
 
-NodeJS/NPM
-- A Firebase Project
+- NodeJS/NPM
 - First, clone the project repository
-- cd to the parent folder
-- Run npm install to install dependencies for the project
-- nnpm install
-- Create a .env file and fill it with your Firebase credentials
+- cd to backend
+- Run #### npm install 
+to install dependencies for backend
+- npm install
+- Create Mongo DB https://account.mongodb.com/account/login?n=%2Fv2%2F6202fdff202c3f47248e22e6&nextHash=%23metrics%2FreplicaSet%2F621bc8efcad26071f1067943%2Fexplorer%2FMapping_Crisis%2Fcrisis%2Ffind
+- Coonect to mongo db using your own Mongo API KEY,  Choose a connection method by selecting Connect your application. You will get the api key 
+- Create a .env file and fill it with your MongoDB API key
 - You can get these by setting up a firebase web app.
+     Creating Mongo DB https://account.mongodb.com/account/login?       n=%2Fv2%2F6202fdff202c3f47248e22e6&nextHash=%23metrics%2FreplicaSet%2F621bc8efcad26071f1067943%2Fexplorer%2FMapping_Crisis%2Fcrisis%2Ffind
+      - Coonect to mongo db using your own Mongo API KEY,  Choose a connection method by selecting Connect your application. You will get the api key 
 
-Also note that you'll need to set up a Firestore Database, to get the correct value for FIREBASE_DATABASEURL. Be sure to set it to test mode so you can read/write data. Just remember to either revert these or remove the database after your testing is completed.
 
-- FIREBASE_APIKEY=""
-- FIREBASE_APPID=""
-- FIREBASE_AUTHDOMAIN=""
-- FIREBASE_DATABASEURL=""
-- FIREBASE_MEASUREMENTID=""
-- FIREBASE_MESSAGINGSENDERID=""
-- FIREBASE_PROJECTID=""
-- FIREBASE_STORAGEBUCKET=""
-- Run npm run dev to run the development server or npm run build to build the production app.
-   And that's it! 🎉
+
+### To run the front end
+- cd to frontend
+- npm install
+- npm start
+
+##### Note that you need to have backend running while running the front
 
 
 
